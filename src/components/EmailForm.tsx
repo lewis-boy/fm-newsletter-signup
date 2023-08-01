@@ -8,9 +8,27 @@ interface EmailFormProps {
 const EmailForm: FC<EmailFormProps> = ({ }) => {
     return (
         <div className="mt-[40px]">
-            <form className='flex flex-col'>
+            <form className='flex flex-col relative'>
                 <label className='font-bold text-[12px]'>Email Address</label>
-                <input type="email" placeholder="email@company.com" className='text-[18px] py-[13px] px-[24px] mt-[8px] border-2 border-my-grey rounded-lg' />
+                <input
+                    type="email"
+                    id='email'
+                    required
+                    placeholder="email@company.com"
+
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]/.[a-z]{2,}"
+                    className='peer text-[18px] py-[13px] px-[24px] mt-[8px] border-2 border-my-grey rounded-lg
+                    invalid:[&:not(:placeholder-shown):not(:focus)]:border-tomato invalid:[&:not(:placeholder-shown):not(:focus)]:border invalid:[&:not(:placeholder-shown):not(:focus)]:bg-red-100
+                    invalid:[&:not(:placeholder-shown):not(:focus)]:text-tomato
+                    '
+                />
+                <span className='font-bold text-[12px] text-tomato
+                                hidden peer-[&:not(:placeholder-shown):not(:focus):invalid]:block
+                                absolute top-0 right-0
+                '
+                >
+                    Valid Email Required
+                </span>
 
                 <div className="text-[16px] py-[15px] px-[65px] mt-[24px] rounded-lg
                     bg-dark-grey-slate
