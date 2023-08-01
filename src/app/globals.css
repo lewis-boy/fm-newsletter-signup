@@ -19,3 +19,22 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.bullet{
+  padding-left: 2.0em;
+	margin-bottom: 0.5em;
+}
+
+.bullet::before{
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.5em;
+  height: 1.5em;
+  background-repeat: no-repeat;
+  background-image: url(/images/icon-list.svg);
+  background-size: 80%;
+
+}
