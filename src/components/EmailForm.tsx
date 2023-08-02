@@ -1,21 +1,30 @@
 'use client'
+import Link from 'next/link'
 import { FC } from 'react'
+import { useState } from 'react'
 
 interface EmailFormProps {
 
 }
 
 const EmailForm: FC<EmailFormProps> = ({ }) => {
+    const [email, setEmail] = useState('')
+
+    const handleSubmit = () => {
+
+    }
+
     return (
         <div className="mt-[40px]">
-            <form className='flex flex-col relative group' noValidate>
+            <form className='flex flex-col relative group' onSubmit={handleSubmit} noValidate>
                 <label className='font-bold text-[12px]'>Email Address</label>
                 <input
                     type="email"
                     id='email'
                     required
                     placeholder="email@company.com"
-
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]/.[a-z]{2,}"
                     className='peer text-[18px] py-[13px] px-[24px] mt-[8px] border-2 border-my-grey rounded-lg
                     invalid:[&:not(:placeholder-shown):not(:focus)]:border-tomato invalid:[&:not(:placeholder-shown):not(:focus)]:border invalid:[&:not(:placeholder-shown):not(:focus)]:bg-red-100
@@ -39,7 +48,8 @@ const EmailForm: FC<EmailFormProps> = ({ }) => {
                 "
                 >
                     Subscribe to monthly newsletter
-                    <button
+                    <Link
+                        href={`/success?email=${email}`}
                         type="submit"
                         className="absolute inset-0 w-full h-full rounded-lg
                         text-white
@@ -49,7 +59,7 @@ const EmailForm: FC<EmailFormProps> = ({ }) => {
                     "
                     >
                         Subscribe to monthly newsletter
-                    </button>
+                    </Link>
                 </div>
             </form>
         </div>
