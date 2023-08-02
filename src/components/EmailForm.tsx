@@ -56,6 +56,7 @@ const EmailForm: FC<EmailFormProps> = ({ }) => {
                         opacity-0 hover:opacity-100 bg-gradient-to-b from-[#FF6A3A] to-[#FF527B]
                         transition duration-500
                         group-invalid:pointer-events-none
+                        flex items-center justify-center
                     "
                     >
                         Subscribe to monthly newsletter
